@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from typing import Optional
 from pydantic import BaseModel
+import uvicorn
 app = FastAPI() #instance of FastAPI
 
 #Decorators to define routes matters the most 
@@ -36,3 +37,6 @@ class Blog(BaseModel):
 def create_blog(request: Blog):  # Expecting a dictionary as the request body
     # Logic to create a new blog
     return {'data': f'Blog is created with title as {request.title}'}  # Return a confirmation message
+
+#if __name__ == "__main__":
+#    uvicorn.run(app,host="127.0.0.1", port=9000)
