@@ -11,7 +11,7 @@ class Blog(Base):
     body = Column(String)
     user_id = Column(Integer, ForeignKey("users.id"))
 
-    creater = relationship("User", back_populates="blogs")
+    creator = relationship("User", back_populates="blogs")
 
 class User(Base):
     __tablename__ = "users"
@@ -20,4 +20,4 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     password = Column(String)
 
-    blogs = relationship("Blog", back_populates="creater")
+    blogs = relationship("Blog", back_populates="creator")
