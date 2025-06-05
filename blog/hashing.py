@@ -7,3 +7,7 @@ class Hash():
         hashed_password = pwd_cxt.hash(password)
         
         return hashed_password
+    
+    def verify(hashed_password: str, plain_password: str):
+        """Verify a password against a hashed password."""
+        return pwd_cxt.verify(plain_password, hashed_password)
